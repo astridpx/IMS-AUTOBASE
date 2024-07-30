@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Logo from "./assets/logo.svg";
+import Bg from "./assets/bg.jpg";
 import axios from "./lib/axios";
 
 interface ReponseInterface {
@@ -10,8 +11,8 @@ interface ReponseInterface {
   };
 }
 export default function Login() {
-  const [username, setUsername] = useState<string>("ims_user");
-  const [password, setPassword] = useState<string>("Bad_Passw0rd");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
@@ -44,8 +45,12 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex items-center justify-center w-full min-h-screen bg-gray-300">
-        <div className="bg-white rounded-xl p-4 w-96 h-[27rem]">
+      <div className="relative flex items-center justify-center w-full min-h-screen bg-gray-300">
+        {/* bg image */}
+        <img src={Bg} alt="bg" className="object-cover w-full h-screen" />
+
+        {/* FORM BOX */}
+        <div className=" absolute bg-white/90 rounded-xl p-4 w-96 h-[27rem]">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img className="w-auto h-6 mx-auto" src={Logo} alt="Logo" />
             <h2 className="mt-8 text-xl font-bold leading-9 tracking-tight text-center text-gray-900">
