@@ -31,7 +31,7 @@ export default function Navbar() {
         <img src={Logo} alt="logo" width={200} />
 
         <div className="flex items-center space-x-8">
-          <div className="flex items-center space-x-4">
+          <div className="items-center hidden space-x-4 md:flex">
             <h5 className="font-semibold">{user}</h5>
             <img
               className="inline-block w-8 h-8 rounded-full ring-2 ring-white"

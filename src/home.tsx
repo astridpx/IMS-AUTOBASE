@@ -54,17 +54,23 @@ export default function Home() {
         <CarFilter />
 
         {/* CAR DISPLAY */}
-        <div className="grid grid-cols-4 gap-6 px-8">
-          {cars?.map((car) => (
-            <CarCard
-              key={car._id}
-              name={car.name}
-              make={car.make}
-              flag_img={car.origin}
-              car_img={car.image}
-              year={Number(car.release)}
-            />
-          ))}
+        <div className="grid gap-6 pb-10 md:grid-cols-2 lg:grid-cols-4">
+          {cars?.length ? (
+            cars.map((car) => (
+              <CarCard
+                key={car._id}
+                name={car.name}
+                make={car.make}
+                flag_img={car.origin}
+                car_img={car.image}
+                year={Number(car.release)}
+              />
+            ))
+          ) : (
+            <div className="text-xl font-bold text-center text-gray-600 lg:-translate-y-8 col-span-full">
+              <h3>No Item Found.</h3>
+            </div>
+          )}
         </div>
       </Layout>
     </>

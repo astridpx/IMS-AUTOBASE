@@ -46,31 +46,34 @@ export default function CarFilter() {
 
   return (
     <>
-      <section className="grid items-center grid-cols-8 mt-6 mb-16">
-        <div className="col-span-3">
+      <section className="grid items-center mt-6 mb-10 lg:mb-16 lg:grid-cols-9 ">
+        <div className="mb-8 lg:col-span-3 lg:mb-0 ">
           <h3 className="text-4xl font-bold">Car Showcase</h3>
           <h5 className="text-sm font-semibold text-gray-600">
             Uncover your dream car!
           </h5>
         </div>
 
-        <div className="flex items-center col-span-5 space-x-2">
+        {/* FILTER INPUT */}
+        <div className="grid items-center w-full gap-2 col-span-full lg:grid-cols-2 lg:col-span-6">
           <input
             name="search"
             type="search"
-            className="block w-full max-w-sm px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm"
+            className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm lg:col-span-1 col-span-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm"
             placeholder="Search..."
             value={search}
             onChange={(e) => handleSearchInput(e.target.value)}
           />
 
-          <Dropdown options={make} placeholder="Filter make" param="make" />
-          <Dropdown options={years} placeholder="Filter year" param="year" />
-          <Dropdown
-            options={origin}
-            placeholder="Filter origin"
-            param="origin"
-          />
+          <div className="flex items-center space-x-2 ">
+            <Dropdown options={make} placeholder="Filter make" param="make" />
+            <Dropdown options={years} placeholder="Filter year" param="year" />
+            <Dropdown
+              options={origin}
+              placeholder="Filter origin"
+              param="origin"
+            />
+          </div>
         </div>
       </section>
     </>

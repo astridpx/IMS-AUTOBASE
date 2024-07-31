@@ -34,7 +34,7 @@ const Dropdown = ({ options, placeholder, param }: DropdownProps) => {
   };
 
   return (
-    <div className="relative inline-block w-64">
+    <div className="relative inline-block w-full">
       <div className="border border-gray-300 rounded-md shadow-sm">
         {/* button trigger */}
         <button
