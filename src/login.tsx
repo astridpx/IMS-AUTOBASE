@@ -3,7 +3,7 @@ import Logo from "./assets/logo.svg";
 import Bg from "./assets/bg.jpg";
 import axios from "./lib/axios";
 // import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 interface ReponseInterface {
   success: boolean;
@@ -38,8 +38,9 @@ export default function Login() {
         localStorage.setItem("token", data.user.token);
         // navigate("/");
         setLoading(false);
-        <Navigate to="/" replace={true} />;
-        window.location.reload();
+        // <Navigate to="/" replace={true} />;
+        // window.location.reload();
+        window.location.replace("/");
       }
     } catch (error) {
       console.log(error);
