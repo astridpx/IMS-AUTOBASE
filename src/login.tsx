@@ -2,6 +2,8 @@ import { useState } from "react";
 import Logo from "./assets/logo.svg";
 import Bg from "./assets/bg.jpg";
 import axios from "./lib/axios";
+// import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 interface ReponseInterface {
   success: boolean;
@@ -15,6 +17,7 @@ export default function Login() {
   const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+  // const navigate = useNavigate();
 
   // Form submit
   const HandleSubmit = async (e: React.FormEvent) => {
@@ -33,7 +36,9 @@ export default function Login() {
 
       if (data) {
         localStorage.setItem("token", data.user.token);
+        // navigate("/");
         setLoading(false);
+        <Navigate to="/" replace={true} />;
         window.location.reload();
       }
     } catch (error) {
