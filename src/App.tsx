@@ -18,13 +18,11 @@ function App() {
       {/* <BrowserRouter> */}
       <Routes>
         {/* Redirect to Home if user is authenticated and trying to access /login */}
-        {/* {user && <Route path="/login" element={<Navigate replace to="/" />} />}\ */}
+        {user && <Route path="/login" element={<Navigate replace to="/" />} />}
 
         {/* Home route, visible only if user is authenticated */}
         {user && <Route path="/" element={<Home />} />}
-
         <Route path="/login" element={<Login />} />
-
         {/* Redirect any other paths to /login if user is not authenticated */}
         {!user && <Route path="/" element={<Navigate replace to="/login" />} />}
       </Routes>
