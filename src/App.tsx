@@ -32,10 +32,17 @@ function App() {
           {/* Login route, visible only if user is not authenticated */}
           {!user && <Route path="/login" element={<Login />} />}
 
-          {/* Redirect any other paths to /login if user is not authenticated */}
-          {!user && (
-            <Route path="*" element={<Navigate replace to="/login" />} />
-          )}
+          {/* Default route to handle root access based on authentication */}
+          <Route
+            path="/"
+            element={
+              user ? (
+                <Navigate replace to="/" />
+              ) : (
+                <Navigate replace to="/login" />
+              )
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
